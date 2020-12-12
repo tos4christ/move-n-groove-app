@@ -1,0 +1,56 @@
+#seconds {
+    font-size: 5em;
+    color: green;
+  }
+  
+  #minutes {
+    font-size: 5em;
+  }
+  #colon {
+    font-size: 5em;
+  }
+  #start {
+    margin-right: 80px;
+  }
+  #stop {
+    margin-right: 40px;
+  }
+
+  /* Index page design */
+  .home {
+    margin: 2em;
+    text-align: center;
+  }
+  .activity-index {
+    margin: 0 3em;
+  }
+
+  /* Jumbotron design */
+  .jumbotron h1 {
+    text-align: center;
+    margin: 0.3em;
+  }
+
+  /* Navbar design */
+  nav .container-fluid {
+    padding: 10px;
+  }
+  .right-bar {
+    margin-right: 2em;
+  }
+
+  /* New Activities design */
+  .actions {
+    margin: 1em 3em;
+  }
+  h1.new {
+    padding-left: 1em;
+    margin-top: 0.5em;
+  }
+  .actions input, select {
+    margin: 0 2em 0.5em o.5em;
+  }
+  .new_activity_design a {
+    margin: 0 0 2em 3em;
+  }
+  

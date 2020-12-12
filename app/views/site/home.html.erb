@@ -1,0 +1,17 @@
+
+<div class="home">
+
+<% if !current_user %>
+    <h1>Welcome to Move N Groove</h1>
+    <p> Create a new account to beging to log your health activities </p>
+<% else %>
+    <h1>Welcome to Move N Groove dear <%= current_user.name %></h1>
+    <div>
+        <h3> To begin clikc the button below to select and log an activity </h3>
+        <p class="btn btn-dark bg-white text-danger">
+            <%= link_to 'Log an Activity', new_activity_path %>
+        </p>
+    </div>
+<% end %>
+
+</div>

@@ -1,0 +1,73 @@
+<%= form_with(model: activity, local: true) do |form| %>
+  <% if activity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
+
+      <ul>
+        <% activity.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.label :activity_type %>
+    <%= form.select(:activity_type,[ 
+    ['Walking', 'Walking'], 
+    ['Running', 'Running'],
+    ['Cycling', 'Cycling'],
+    ['Swimming', 'Swimming'],
+    ['Skating', 'Skating'],
+    ['Hiking', 'Hiking'],
+    ['Mountain Biking', 'Mountain Biking'],
+    ['Circuit Training', 'Circuit Training'],
+    ['Strength Training', 'Strength Training'],
+    ['Snow Boarding', 'Snow Boarding']
+    ]) 
+    %>
+
+    <%= javascript_pack_tag 'timer'%>
+
+    <%# form.select_tag(:activity_type, options_for_select([['Walking', 'Walking'], ['Running', 'Running']], form.object.activity_type)) %>
+    <%= form.date_field :date%>
+    <%= form.number_field :duration, id: "activity_duration" %>
+
+    <%# Create a modal class which autofocuses the activity duration timer%>
+    <%#  %>
+    <!-- Button to trigger Modal -->
+    <button type="button" onClick="window.initialize()" class="btn btn-primary" data-toggle="modal" data-target="#grooveModal" data-backdrop="static" data-keyboard="false">
+      Start Grooving
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="grooveModal" tabindex="-1" role="dialog" aria-labelledby="grooveModalTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="grooveModalTitle">Hit the Stop button when done</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="timer_view">
+              <label id="minutes">00</label>
+              <label id="colon">:</label>
+              <label id="seconds">00</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" onClick="window.start()" id="start" class="btn btn-danger">Start</button>
+            <button type="button" onClick="window.stop()" id="stop" class="btn btn-danger">Stop</button>
+            <button type="button" id="save" onClick="getDuration()" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <br/>
+    <%# check countdown timer gem%>
+    <%= form.submit 'Log Activity' %>
+  </div>
+<% end %>
