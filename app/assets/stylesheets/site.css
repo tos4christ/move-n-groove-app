@@ -53,4 +53,17 @@
   .new_activity_design a {
     margin: 0 0 2em 3em;
   }
+
+  /* Sign up page design */
+  .sign-up, .sign-in {
+    margin: 0 4em 2em 4em;
+  }
+
+  /* Links */
+  .link-padding {
+    margin: 40px 10px;
+  }
+  .link-padding-index {
+    margin: 10px 0 40px;
+  }
   

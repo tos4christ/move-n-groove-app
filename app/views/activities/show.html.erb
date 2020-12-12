@@ -2,9 +2,10 @@
 
 <h2> Details of this <%= @activity.activity_type%> Activity on <%= @activity.date%> </h2>
 <p class="h1">
-You were <%= @activity.activity_type %> for <%= @activity.duration/60 %> minutes
+You were <%= @activity.activity_type %> for <%= @activity.duration/60 %> minutes : <%= @activity.duration%60 %> seconds
 </p>
-<%= link_to 'Edit', edit_activity_path(@activity) %>
 
-
-<%= link_to 'Back to Activity lists', activities_path %>
+<div class="link-padding">
+    <%= link_to 'Edit', edit_activity_path(@activity), class: 'link-padding' %>
+    <%= link_to 'Back to Activity lists', activities_path, class: 'link-padding' %>
+</div>
